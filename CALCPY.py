@@ -147,7 +147,8 @@ while not app_valid:
                     purse_custody_valid = True
                 else:
                     print("O valor inserido não é válido! Tente novamente.")
-        change_valid_data = True
+
+            change_valid_data = True
 
         #----------valores fixos----------
         elif is_no(change_data):
@@ -168,13 +169,13 @@ while not app_valid:
   #----------calculos----------
     value_for_calculation = ((interest_rate / 100) + 1)
 
-    valor_tempo = ((monthly_application * (value_for_calculation ** time)) + ((aplicacao_mensal *((value_for_calculation ** time)-1))/(interest_rate/100)))
+    value_time = ((monthly_application * (value_for_calculation ** time)) + ((monthly_application *((value_for_calculation ** time)-1))/(interest_rate/100)))
 
-    valor_final_mes = (valor_tempo * value_for_calculation)
+    valor_final_mes = (value_time * value_for_calculation)
 
-    ganho_liquido = ((valor_final_mes - valor_tempo) - ((valor_final_mes - valor_tempo) * IR))
+    ganho_liquido = ((valor_final_mes - value_time) - ((valor_final_mes - value_time) * IR))
 
-    valor_guardado = (monthly_application + (aplicacao_mensal * time))
+    valor_guardado = (monthly_application + (monthly_application * time))
 
   relacao_ganho = ((valor_final_mes - valor_guardado) - ((valor_final_mes - valor_guardado) * IR2))
 
@@ -182,7 +183,7 @@ while not app_valid:
 
 
     #----------resultados----------
-    print("\nO valor em sua conta após ", "%.0f" % time, " mesês é: ", "%.2f" % valor_tempo)
+    print("\nO valor em sua conta após ", "%.0f" % time, " mesês é: ", "%.2f" % value_time)
 
     print("O valor após o final do mês é de: ", "%.2f" % valor_final_mes)
 
