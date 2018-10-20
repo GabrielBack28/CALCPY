@@ -28,7 +28,7 @@ def insert_value_applied():
             if is_value_valid(value_applied):
                 return value_applied
             else:
-                print("Valor aplicado deve ser maior do que 0!")
+                print("O valor aplicado deve ser maior do que 0!")
         except ValueError:
             print("Valor inválido! Tente novamente.")
 
