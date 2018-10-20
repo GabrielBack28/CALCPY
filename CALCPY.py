@@ -20,6 +20,14 @@ def is_yes(value):
 def is_no(value):
     return (value in ["N", "n"])
 
+def time_value(time, time_base_one, time_base_two):
+    if time >= time_base_one:
+        return float(0.15)
+    elif time >= time_base_two:
+        return float(0.175)
+    else:
+        return float(0.2)
+
 def insert_value_applied():
     while True:
         try:
@@ -31,14 +39,6 @@ def insert_value_applied():
                 print("O valor aplicado deve ser maior do que 0!")
         except ValueError:
             print("Valor inválido! Tente novamente.")
-
-def time_value(time, time_base_one, time_base_two):
-    if time >= time_base_one:
-        return float(0.15)
-    elif time >= time_base_two:
-        return float(0.175)
-    else:
-        return float(0.2)
 
 def insert_time_applied():
     while True:
@@ -61,7 +61,6 @@ def insert_monthly_application():
             if monthly_application < 0:
                 print("A aplicação mensal deve ser maior ou igual a 0!")
             else:
-                print("")
                 valid_monthly_application = True
         except ValueError:
             print("Valor inválido! Tente novamente.")
@@ -71,12 +70,13 @@ show_message_welcome()
 #----------loop para o app (final do app)----------
 app_valid = False
 while not app_valid:
-    #-----aplicação mensal-----
-    monthly_application = insert_monthly_application()
-    #-----tempo-----
-    time = insert_time_applied()
     #-----valor aplicado-----
     value_applied = insert_value_applied()
+    #-----tempo-----
+    time = insert_time_applied()
+    #-----aplicação mensal-----
+    monthly_application = insert_monthly_application()
+
 
     #----------alterar dados----------
     change_valid_data = False
