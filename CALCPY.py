@@ -171,40 +171,40 @@ while not app_valid:
 
     value_time = ((monthly_application * (value_for_calculation ** time)) + ((monthly_application *((value_for_calculation ** time)-1))/(interest_rate/100)))
 
-    valor_final_mes = (value_time * value_for_calculation)
+    final_value_month = (value_time * value_for_calculation)
 
-    ganho_liquido = ((valor_final_mes - value_time) - ((valor_final_mes - value_time) * IR))
+    net_gain = ((final_value_month - value_time) - ((final_value_month - value_time) * IR))
 
-    valor_guardado = (monthly_application + (monthly_application * time))
+    saved_value = (monthly_application + (monthly_application * time))
 
-  relacao_ganho = ((valor_final_mes - valor_guardado) - ((valor_final_mes - valor_guardado) * IR2))
+    obtained_gain = ((final_value_month - saved_value) - ((final_value_month - saved_value) * IR2))
 
-  ganho_final = ((valor_guardado + relacao_ganho) - ((valor_guardado + relacao_ganho) * purse_custody))
+    final_gain = ((saved_value + obtained_gain) - ((saved_value + obtained_gain) * purse_custody))
 
 
     #----------resultados----------
     print("\nO valor em sua conta após ", "%.0f" % time, " mesês é: ", "%.2f" % value_time)
 
-    print("O valor após o final do mês é de: ", "%.2f" % valor_final_mes)
+    print("O valor após o final do mês é de: ", "%.2f" % final_value_month)
 
-    print("O valor do seu ganho líquido é de: ", "%.2f" % ganho_liquido)
+    print("O valor do seu ganho líquido é de: ", "%.2f" % net_gain)
 
-    print("O valor guardado no colchão é de: ", "%.2f" % valor_guardado)
+    print("O valor guardado no colchão é de: ", "%.2f" % saved_value)
 
-    print("O valor da relação de ganhos é de: ", "%.2f" % relacao_ganho)
+    print("O valor da relação de ganhos é de: ", "%.2f" % obtained_gain)
 
-    print("O valor do seu ganho final é de: ", "%.2f" % ganho_final, "\n")
+    print("O valor do seu ganho final é de: ", "%.2f" % final_gain, "\n")
 
 
     #----------validar o loop----------
-    validacao_voltar = False
-    while not validacao_voltar:
-        aplicativo = input("Você gostaria de voltar ao início do programa? (Y/N)")
-        if aplicativo == "Y" or aplicativo == "y":
+    validation_back = False
+    while not validation_back:
+        app = input("Você gostaria de voltar ao início do programa? (Y/N)")
+        if is_yes(app):
             print("\n" * 3)
-            validacao_voltar = True
-        elif aplicativo == "N" or aplicativo == "n":
-            validacao_voltar = True
-            aplicativo_valido = True
+            validation_back = True
+        elif is_no(app):
+            validation_back = True
+            app_valid = True
         else:
             print("O valor inserido não é válido! Tente novamente. \n")
