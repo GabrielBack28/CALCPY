@@ -147,3 +147,63 @@ while not app_valid:
                     purse_custody_valid = True
                 else:
                     print("O valor inserido não é válido! Tente novamente.")
+        change_valid_data = True
+
+        #----------valores fixos----------
+        elif is_no(change_data):
+
+            interest_rate = float(0.5175)
+
+            IR = time_value(time, 25, 13)
+            IR2 = time_value(time, 24, 12)
+
+            purse_custody = float(0.00025)
+
+            change_valid_data = True
+
+        else:
+            print("Valor inválido! Tente novamente.")
+
+
+  #----------calculos----------
+    value_for_calculation = ((interest_rate / 100) + 1)
+
+    valor_tempo = ((monthly_application * (value_for_calculation ** time)) + ((aplicacao_mensal *((value_for_calculation ** time)-1))/(interest_rate/100)))
+
+    valor_final_mes = (valor_tempo * value_for_calculation)
+
+    ganho_liquido = ((valor_final_mes - valor_tempo) - ((valor_final_mes - valor_tempo) * IR))
+
+    valor_guardado = (monthly_application + (aplicacao_mensal * time))
+
+  relacao_ganho = ((valor_final_mes - valor_guardado) - ((valor_final_mes - valor_guardado) * IR2))
+
+  ganho_final = ((valor_guardado + relacao_ganho) - ((valor_guardado + relacao_ganho) * purse_custody))
+
+
+    #----------resultados----------
+    print("\nO valor em sua conta após ", "%.0f" % time, " mesês é: ", "%.2f" % valor_tempo)
+
+    print("O valor após o final do mês é de: ", "%.2f" % valor_final_mes)
+
+    print("O valor do seu ganho líquido é de: ", "%.2f" % ganho_liquido)
+
+    print("O valor guardado no colchão é de: ", "%.2f" % valor_guardado)
+
+    print("O valor da relação de ganhos é de: ", "%.2f" % relacao_ganho)
+
+    print("O valor do seu ganho final é de: ", "%.2f" % ganho_final, "\n")
+
+
+    #----------validar o loop----------
+    validacao_voltar = False
+    while not validacao_voltar:
+        aplicativo = input("Você gostaria de voltar ao início do programa? (Y/N)")
+        if aplicativo == "Y" or aplicativo == "y":
+            print("\n" * 3)
+            validacao_voltar = True
+        elif aplicativo == "N" or aplicativo == "n":
+            validacao_voltar = True
+            aplicativo_valido = True
+        else:
+            print("O valor inserido não é válido! Tente novamente. \n")
