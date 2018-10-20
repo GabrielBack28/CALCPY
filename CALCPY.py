@@ -52,7 +52,8 @@ def insert_time_applied():
         except ValueError:
             print("Valor inválido! Tente novamente.")
 
-show_message_welcome
+
+show_message_welcome()
 
 #----------loop para o app (final do app)----------
 app_valid = False
