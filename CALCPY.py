@@ -169,13 +169,13 @@ while not app_valid:
   #----------calculos----------
     value_for_calculation = ((interest_rate / 100) + 1)
 
-    value_time = ((monthly_application * (value_for_calculation ** time)) + ((monthly_application *((value_for_calculation ** time)-1))/(interest_rate/100)))
+    value_time = ((value_applied * (value_for_calculation ** time)) + ((monthly_application *((value_for_calculation ** time)-1))/(interest_rate/100)))
 
     final_value_month = (value_time * value_for_calculation)
 
     net_gain = ((final_value_month - value_time) - ((final_value_month - value_time) * IR))
 
-    saved_value = (monthly_application + (monthly_application * time))
+    saved_value = (value_applied + (monthly_application * time))
 
     obtained_gain = ((final_value_month - saved_value) - ((final_value_month - saved_value) * IR2))
 
