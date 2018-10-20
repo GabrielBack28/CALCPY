@@ -89,7 +89,7 @@ while not app_valid:
                 if is_yes(interest_rate):
                     try:
                         interest_rate = input("Digite o valor da taxa de juros: ")
-                        interest_rate - format_input_numeric(interest_rate)
+                        interest_rate = format_input_numeric(interest_rate)
 
                         if interest_rate <= 0:
                             print("A taxa de juros deve ser maior que 0!")
