@@ -52,23 +52,12 @@ def insert_time_applied():
         except ValueError:
             print("Valor inválido! Tente novamente.")
 
-
-show_message_welcome()
-
-#----------loop para o app (final do app)----------
-app_valid = False
-while not app_valid:
-    value_applied = insert_value_applied()
-    time = insert_time_applied()
-
-
-    #----------aplicação mensal----------
+def insert_monthly_application():
     valid_monthly_application = False
     while not valid_monthly_application:
         try:
             monthly_application = input("Digite a aplicação mensal (reais): ")
             monthly_application = format_input_numeric(monthly_application)
-
             if monthly_application < 0:
                 print("A aplicação mensal deve ser maior ou igual a 0!")
             else:
@@ -76,6 +65,18 @@ while not app_valid:
                 valid_monthly_application = True
         except ValueError:
             print("Valor inválido! Tente novamente.")
+
+show_message_welcome()
+
+#----------loop para o app (final do app)----------
+app_valid = False
+while not app_valid:
+    #-----aplicação mensal-----
+    monthly_application = insert_monthly_application()
+    #-----tempo-----
+    time = insert_time_applied()
+    #-----valor aplicado-----
+    value_applied = insert_value_applied()
 
     #----------alterar dados----------
     change_valid_data = False
