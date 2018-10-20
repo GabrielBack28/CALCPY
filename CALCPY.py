@@ -61,6 +61,7 @@ def insert_monthly_application():
             if monthly_application < 0:
                 print("A aplicação mensal deve ser maior ou igual a 0!")
             else:
+                return monthly_application
                 valid_monthly_application = True
         except ValueError:
             print("Valor inválido! Tente novamente.")
