@@ -19,3 +19,6 @@ class TestCalcpy(unittest.TestCase):
         self.assertEqual(is_yes("o"), False)
         self.assertEqual(is_yes("F"), False)
         self.assertEqual(is_yes("N"), False)
+        
+if __name__ == '__main__':
+    unittest.main()
